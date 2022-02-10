@@ -1,0 +1,22 @@
+
+#Import json and pandas libraries so we can use them for parsing and data framing since our data is in JSON format.
+
+import pandas as pd
+import json
+
+#json data has been formatted into a shorter version for testing purposes
+json_data = """{
+  "entry": [ {
+    "resource": {
+      "extension": [ {
+        "extension": [ {
+          "valueCoding": {
+            "display": "White"
+          }
+        } ]
+      } 
+      ]}}]}"""
+
+
+parsed_json = (json.loads(json_data))
+v = (json.dumps(parsed_json, indent=4, sort_keys=True))
