@@ -88,10 +88,7 @@ json_data = """{
         "value": "999-86-2571"
       }]}}]}"""
 
-
-
 parsed_json = (json.loads(json_data))
-#df = pd.json_normalize(parsed_json["entry"])
 df = pd.DataFrame.from_records(parsed_json["entry"], columns=["fullUrl"]["resource"])
 
 print(df)
