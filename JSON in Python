@@ -2,18 +2,7 @@ import json
 import pandas as pd 
 from pandas import json_normalize
 
-#load json object
-with open('https://raw.githubusercontent.com/emisgroup/exa-data-eng-assessment/main/data/Aaron697_Dickens475_8c95253e-8ee8-9ae8-6d40-021d702dc78e.json') as f:
-    d = json.load(f)
-
-#lets put the data into a pandas df
-#.json file tells us parent node is "entry"
-
-df = json_normalize(d["entry"])
+df = pd.DataFrame.from_records(json_data["entry"], columns=["fullUrl", "resource",["resource", "resourceType"]])
 print(df)
 
-df1 = json_normalize(data=d["entry"], record_path="resource", 
-                            meta=["resourceType", "id"])
-
-print(df1)
 
