@@ -12,6 +12,8 @@ with open('https://raw.githubusercontent.com/emisgroup/exa-data-eng-assessment/m
 df = json_normalize(d["entry"])
 print(df)
 
-df1 = json_normalize(data=d["entry"], record_path="extension", 
-                            meta=["url", "id"])
+df1 = json_normalize(data=d["entry"], record_path="resource", 
+                            meta=["resourceType", "id"])
+
 print(df1)
+
