@@ -1,9 +1,14 @@
-import pandas as pd
-import json
+import json 
+import pandas as pd 
+from pandas import json_normalize
 
-#Testing the logic by dispaying two columns "fullUrl" and "resource" based on the .json file.
+#load json object
+with open('https://raw.githubusercontent.com/emisgroup/exa-data-eng-assessment/main/data/Aaron697_Dickens475_8c95253e-8ee8-9ae8-6d40-021d702dc78e.json') as f:
+    d = json.load(f)
 
-json_data = ('https://raw.githubusercontent.com/emisgroup/exa-data-eng-assessment/main/data/Aaron697_Dickens475_8c95253e-8ee8-9ae8-6d40-021d702dc78e.json')
-df = pd.DataFrame.from_records(json_data["entry"], columns=["fullUrl", "resource"])
-print (df)
+#lets put the data into a pandas df
+#our .json file tells us parent node is "entry"
+
+df = json_normalize(d["entry"])
+print(df)
 
