@@ -1,0 +1,8 @@
+#Using this code to find out what are the keys nested in the json file based on different levels.
+
+json_data= json.dumps(json_data) #serialize dictionary to json
+
+new_json_data=json.loads(json_data) #unserialize
+
+j = new_json_data["entry"][0].keys()
+print (j)
